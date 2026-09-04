@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+# real evidence stays out of git; only the SAMPLE_ files are committed
+evidence/aws/*
+!evidence/aws/SAMPLE_*
