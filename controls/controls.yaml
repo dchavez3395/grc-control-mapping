@@ -1,0 +1,290 @@
+# Control register for a small SaaS company (~30 people, AWS + GitHub + Google Workspace + Okta).
+# Each control names an owner, a frequency, the evidence an auditor would ask for, and the
+# SOC 2 criteria it satisfies. scripts/validate_mappings.py checks that every criterion in
+# mappings/soc2_tsc.csv is covered by at least one control.
+
+- id: ORG-01
+  name: Information security policy set
+  description: A written policy set (acceptable use, access control, change management, incident response, vendor management, data classification) approved by leadership and reviewed annually.
+  owner: Head of Engineering
+  frequency: annual
+  type: preventive
+  evidence:
+    - Policy documents with version, approver and approval date
+    - Annual review ticket with sign-off
+    - Employee acknowledgement records
+  soc2: [CC1.1, CC2.2, CC3.1, CC5.1, CC5.3]
+
+- id: ORG-02
+  name: Roles, responsibilities and org chart
+  description: Security roles and reporting lines are defined and published; a named individual owns each control in this register.
+  owner: CEO
+  frequency: annual
+  type: preventive
+  evidence:
+    - Org chart
+    - This control register with owner column populated
+    - Board or leadership meeting minutes covering security
+  soc2: [CC1.2, CC1.3, CC1.5]
+
+- id: ORG-03
+  name: Background screening and onboarding
+  description: New hires are screened as permitted by law, sign confidentiality terms, and complete security awareness training within 30 days.
+  owner: People Ops
+  frequency: per hire
+  type: preventive
+  evidence:
+    - Screening completion record per hire
+    - Signed confidentiality agreement
+    - Training completion export
+  soc2: [CC1.4, CC2.2]
+
+- id: ORG-04
+  name: Security awareness training
+  description: All staff complete security awareness training on hire and annually; phishing simulations run quarterly.
+  owner: People Ops
+  frequency: annual
+  type: preventive
+  evidence:
+    - Training platform completion report
+    - Phishing simulation results
+  soc2: [CC1.4, CC2.2]
+
+- id: RSK-01
+  name: Annual risk assessment
+  description: A risk register is maintained; risks are scored for likelihood and impact, assigned an owner and a treatment, and reviewed at least annually and on significant change.
+  owner: Head of Engineering
+  frequency: annual
+  type: detective
+  evidence:
+    - Risk register with dated review
+    - Treatment plans for high risks
+    - Fraud risk considered as an explicit line item
+  soc2: [CC3.1, CC3.2, CC3.3, CC3.4, CC9.1]
+
+- id: RSK-02
+  name: Vendor risk management
+  description: Vendors with access to production or customer data are inventoried, tiered by risk, reviewed before onboarding (SOC 2 report or questionnaire) and re-reviewed annually.
+  owner: Head of Engineering
+  frequency: annual
+  type: preventive
+  evidence:
+    - Vendor inventory with tier and review date
+    - Completed questionnaire or SOC 2 report review notes per critical vendor
+    - Signed agreements with security terms
+  soc2: [CC2.3, CC9.2]
+
+- id: MON-01
+  name: Internal control monitoring and deficiency tracking
+  description: Control effectiveness is reviewed quarterly; deficiencies are logged with an owner and due date and reported to leadership.
+  owner: Head of Engineering
+  frequency: quarterly
+  type: detective
+  evidence:
+    - Quarterly control review checklist
+    - Deficiency log with closure dates
+  soc2: [CC4.1, CC4.2, CC2.1]
+
+- id: ACC-01
+  name: Single sign-on with MFA
+  description: All corporate and production access is federated through the identity provider with MFA enforced for every user.
+  owner: IT
+  frequency: continuous
+  type: preventive
+  evidence:
+    - IdP MFA policy screenshot
+    - User list with MFA status export
+  soc2: [CC6.1, CC6.6]
+
+- id: ACC-02
+  name: Access provisioning
+  description: Access is requested in a ticket, approved by the resource owner, and granted according to a role matrix before credentials are issued.
+  owner: IT
+  frequency: per request
+  type: preventive
+  evidence:
+    - Sample of access tickets with approval
+    - Role matrix
+  soc2: [CC6.2, CC6.3]
+
+- id: ACC-03
+  name: Quarterly access review
+  description: Owners review all user and service accounts on production systems quarterly; removals are completed within 5 business days.
+  owner: Head of Engineering
+  frequency: quarterly
+  type: detective
+  evidence:
+    - Access review export with reviewer sign-off
+    - Removal tickets
+  soc2: [CC6.3]
+
+- id: ACC-04
+  name: Offboarding
+  description: Access is revoked within 24 hours of termination via an offboarding checklist triggered by HR.
+  owner: IT
+  frequency: per departure
+  type: preventive
+  evidence:
+    - Offboarding checklist per leaver with timestamps
+    - IdP deactivation log
+  soc2: [CC6.2, CC6.3]
+
+- id: ACC-05
+  name: Physical access
+  description: Office access is by badge; visitor log maintained; production runs in AWS whose physical controls are inherited via its SOC 2 report.
+  owner: Office Manager
+  frequency: continuous
+  type: preventive
+  evidence:
+    - Badge system user list
+    - Visitor log sample
+    - AWS SOC 2 report reviewed annually
+  soc2: [CC6.4]
+
+- id: DAT-01
+  name: Encryption in transit and at rest
+  description: TLS 1.2+ on all public endpoints; storage and databases encrypted with managed keys.
+  owner: Platform Lead
+  frequency: continuous
+  type: preventive
+  evidence:
+    - TLS scan results
+    - AWS config export showing encryption on S3 RDS EBS
+  soc2: [CC6.1, CC6.7]
+
+- id: DAT-02
+  name: Data classification and handling
+  description: Data is classified (public, internal, confidential, restricted) and handling rules define where each class may be stored and transmitted.
+  owner: Head of Engineering
+  frequency: annual
+  type: preventive
+  evidence:
+    - Classification policy
+    - Data inventory with classification
+  soc2: [C1.1, CC2.1, CC6.7]
+
+- id: DAT-03
+  name: Secure disposal
+  description: Customer data is deleted per retention schedule; decommissioned devices are wiped or destroyed with a certificate.
+  owner: IT
+  frequency: per event
+  type: preventive
+  evidence:
+    - Retention schedule
+    - Deletion job logs
+    - Destruction certificates
+  soc2: [C1.2, CC6.5]
+
+- id: END-01
+  name: Endpoint protection
+  description: Managed laptops run MDM with disk encryption, EDR/anti-malware, screen lock and automatic updates enforced.
+  owner: IT
+  frequency: continuous
+  type: preventive
+  evidence:
+    - MDM compliance report
+    - EDR console coverage report
+  soc2: [CC6.8, CC6.7]
+
+- id: OPS-01
+  name: Vulnerability management
+  description: Dependencies, containers and hosts are scanned continuously; criticals remediated within 7 days, highs within 30.
+  owner: Platform Lead
+  frequency: continuous
+  type: detective
+  evidence:
+    - Scanner reports
+    - Remediation tickets with SLA timestamps
+  soc2: [CC7.1]
+
+- id: OPS-02
+  name: Logging and monitoring
+  description: Application, infrastructure and access logs are centralised, retained 12 months, and alert on defined anomalies.
+  owner: Platform Lead
+  frequency: continuous
+  type: detective
+  evidence:
+    - Log platform retention setting
+    - Alert rule inventory
+    - Sample alerts and triage notes
+  soc2: [CC7.2, CC7.3, A1.1]
+
+- id: OPS-03
+  name: Incident response
+  description: A written incident response plan with severity levels, roles, communication templates and a post-incident review; tested annually with a tabletop.
+  owner: Head of Engineering
+  frequency: annual
+  type: corrective
+  evidence:
+    - IR plan
+    - Tabletop exercise record
+    - Post-incident reviews for the period
+  soc2: [CC7.3, CC7.4, CC7.5, CC2.3]
+
+- id: OPS-04
+  name: Capacity and availability monitoring
+  description: Capacity metrics and uptime are monitored against targets; autoscaling and alert thresholds are defined.
+  owner: Platform Lead
+  frequency: continuous
+  type: detective
+  evidence:
+    - Dashboard screenshots
+    - Uptime report
+  soc2: [A1.1]
+
+- id: OPS-05
+  name: Backups and recovery testing
+  description: Production data is backed up daily with 35-day retention in a separate region; a restore is tested at least annually.
+  owner: Platform Lead
+  frequency: annual
+  type: corrective
+  evidence:
+    - Backup configuration export
+    - Restore test record with result
+  soc2: [A1.2, A1.3, CC7.5]
+
+- id: OPS-06
+  name: Business continuity and disaster recovery plan
+  description: BC/DR plan defines RTO/RPO, critical systems and roles; reviewed annually.
+  owner: Head of Engineering
+  frequency: annual
+  type: corrective
+  evidence:
+    - BC/DR plan with review date
+    - DR exercise record
+  soc2: [CC9.1, A1.2, A1.3]
+
+- id: CHG-01
+  name: Change management
+  description: All production changes go through a pull request with peer review, automated tests and a separate deploy approval; emergency changes are documented after the fact.
+  owner: Platform Lead
+  frequency: per change
+  type: preventive
+  evidence:
+    - Branch protection settings
+    - Sample of merged PRs with review and CI status
+    - Emergency change log
+  soc2: [CC8.1, CC5.2]
+
+- id: CHG-02
+  name: Environment separation and configuration baselines
+  description: Development, staging and production are separate accounts; infrastructure is defined as code and drift is detected.
+  owner: Platform Lead
+  frequency: continuous
+  type: preventive
+  evidence:
+    - Account structure diagram
+    - IaC repository
+    - Drift detection output
+  soc2: [CC5.2, CC7.1, CC8.1]
+
+- id: NET-01
+  name: Network boundary protection
+  description: Security groups default-deny; public exposure limited to load balancers; WAF in front of public applications.
+  owner: Platform Lead
+  frequency: continuous
+  type: preventive
+  evidence:
+    - Security group export
+    - WAF configuration
+  soc2: [CC6.6]
