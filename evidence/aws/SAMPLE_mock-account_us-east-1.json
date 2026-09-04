@@ -1,0 +1,252 @@
+{
+  "collected_at": "2026-09-02T03:05:22.526425+00:00",
+  "account": "123456789012-SAMPLE",
+  "region": "us-east-1",
+  "findings": [
+    {
+      "check": "iam_root_no_access_keys",
+      "control": "ACC-01",
+      "soc2": [
+        "CC6.1",
+        "CC6.2"
+      ],
+      "result": "PASS",
+      "tested": "Root account has no access keys",
+      "population": 1,
+      "evidence": {
+        "AccountAccessKeysPresent": 0
+      },
+      "notes": ""
+    },
+    {
+      "check": "iam_root_mfa",
+      "control": "ACC-01",
+      "soc2": [
+        "CC6.1"
+      ],
+      "result": "FAIL",
+      "tested": "Root account has MFA enabled",
+      "population": 1,
+      "evidence": {
+        "AccountMFAEnabled": 0
+      },
+      "notes": ""
+    },
+    {
+      "check": "iam_users_mfa",
+      "control": "ACC-01",
+      "soc2": [
+        "CC6.1"
+      ],
+      "result": "FAIL",
+      "tested": "Every IAM user with console access has an MFA device",
+      "population": 3,
+      "evidence": [
+        {
+          "user": "alice",
+          "console": true,
+          "mfa": true,
+          "keys": []
+        },
+        {
+          "user": "bob",
+          "console": true,
+          "mfa": false,
+          "keys": [
+            {
+              "id": "****************IAOS",
+              "status": "Active",
+              "age_days": 0,
+              "idle_days": 0
+            }
+          ]
+        },
+        {
+          "user": "svc-deploy",
+          "console": false,
+          "mfa": false,
+          "keys": [
+            {
+              "id": "****************VEHA",
+              "status": "Active",
+              "age_days": 0,
+              "idle_days": 0
+            }
+          ]
+        }
+      ],
+      "notes": "Users without MFA: ['bob']"
+    },
+    {
+      "check": "iam_stale_access_keys",
+      "control": "ACC-03",
+      "soc2": [
+        "CC6.3"
+      ],
+      "result": "PASS",
+      "tested": "No active access key unused for more than 90 days",
+      "population": 3,
+      "evidence": [
+        {
+          "user": "alice",
+          "console": true,
+          "mfa": true,
+          "keys": []
+        },
+        {
+          "user": "bob",
+          "console": true,
+          "mfa": false,
+          "keys": [
+            {
+              "id": "****************IAOS",
+              "status": "Active",
+              "age_days": 0,
+              "idle_days": 0
+            }
+          ]
+        },
+        {
+          "user": "svc-deploy",
+          "console": false,
+          "mfa": false,
+          "keys": [
+            {
+              "id": "****************VEHA",
+              "status": "Active",
+              "age_days": 0,
+              "idle_days": 0
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "check": "iam_password_policy",
+      "control": "ACC-01",
+      "soc2": [
+        "CC6.1"
+      ],
+      "result": "FAIL",
+      "tested": "Account password policy exists and meets baseline",
+      "population": 1,
+      "evidence": null,
+      "notes": "No password policy set"
+    },
+    {
+      "check": "s3_default_encryption",
+      "control": "DAT-01",
+      "soc2": [
+        "CC6.1",
+        "CC6.7"
+      ],
+      "result": "FAIL",
+      "tested": "Every bucket has default server-side encryption",
+      "population": 2,
+      "evidence": [
+        {
+          "bucket": "good-bucket",
+          "default_encryption": "AES256",
+          "public_access_block": {
+            "BlockPublicAcls": true,
+            "IgnorePublicAcls": true,
+            "BlockPublicPolicy": true,
+            "RestrictPublicBuckets": true
+          }
+        },
+        {
+          "bucket": "bad-bucket",
+          "default_encryption": null,
+          "public_access_block": null
+        }
+      ],
+      "notes": "Unencrypted: ['bad-bucket']"
+    },
+    {
+      "check": "s3_public_access_block",
+      "control": "NET-01",
+      "soc2": [
+        "CC6.6"
+      ],
+      "result": "FAIL",
+      "tested": "Every bucket blocks all public access",
+      "population": 2,
+      "evidence": [
+        {
+          "bucket": "good-bucket",
+          "default_encryption": "AES256",
+          "public_access_block": {
+            "BlockPublicAcls": true,
+            "IgnorePublicAcls": true,
+            "BlockPublicPolicy": true,
+            "RestrictPublicBuckets": true
+          }
+        },
+        {
+          "bucket": "bad-bucket",
+          "default_encryption": null,
+          "public_access_block": null
+        }
+      ],
+      "notes": "Not fully blocked: ['bad-bucket']"
+    },
+    {
+      "check": "ebs_default_encryption",
+      "control": "DAT-01",
+      "soc2": [
+        "CC6.1"
+      ],
+      "result": "FAIL",
+      "tested": "EBS encryption by default is enabled in the region",
+      "population": 1,
+      "evidence": {
+        "EbsEncryptionByDefault": false
+      },
+      "notes": ""
+    },
+    {
+      "check": "cloudtrail_enabled",
+      "control": "OPS-02",
+      "soc2": [
+        "CC7.2",
+        "CC7.3"
+      ],
+      "result": "FAIL",
+      "tested": "At least one multi-region trail is logging with log file validation",
+      "population": 0,
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "check": "guardduty_enabled",
+      "control": "OPS-02",
+      "soc2": [
+        "CC7.2"
+      ],
+      "result": "PASS",
+      "tested": "GuardDuty detector enabled in the region",
+      "population": 1,
+      "evidence": [
+        {
+          "detector": "e59068c1bacedda6dda9661069d07715",
+          "status": "ENABLED"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "check": "config_recorder",
+      "control": "CHG-02",
+      "soc2": [
+        "CC7.1",
+        "CC5.2"
+      ],
+      "result": "FAIL",
+      "tested": "AWS Config recorder is recording",
+      "population": 0,
+      "evidence": [],
+      "notes": ""
+    }
+  ]
+}
