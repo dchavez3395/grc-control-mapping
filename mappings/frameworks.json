@@ -1,0 +1,52 @@
+{
+  "nist_csf_2": {
+    "name": "NIST Cybersecurity Framework 2.0 (Feb 2024)",
+    "categories": {
+      "GV.OC": "Organizational Context", "GV.RM": "Risk Management Strategy", "GV.RR": "Roles, Responsibilities, and Authorities",
+      "GV.PO": "Policy", "GV.OV": "Oversight", "GV.SC": "Cybersecurity Supply Chain Risk Management",
+      "ID.AM": "Asset Management", "ID.RA": "Risk Assessment", "ID.IM": "Improvement",
+      "PR.AA": "Identity Management, Authentication, and Access Control", "PR.AT": "Awareness and Training",
+      "PR.DS": "Data Security", "PR.PS": "Platform Security", "PR.IR": "Technology Infrastructure Resilience",
+      "DE.CM": "Continuous Monitoring", "DE.AE": "Adverse Event Analysis",
+      "RS.MA": "Incident Management", "RS.AN": "Incident Analysis", "RS.CO": "Incident Response Reporting and Communication", "RS.MI": "Incident Mitigation",
+      "RC.RP": "Incident Recovery Plan Execution", "RC.CO": "Incident Recovery Communication"
+    }
+  },
+  "iso_27001_2022": {
+    "name": "ISO/IEC 27001:2022 Annex A",
+    "themes": {"5": "Organizational controls (5.1-5.37)", "6": "People controls (6.1-6.8)", "7": "Physical controls (7.1-7.14)", "8": "Technological controls (8.1-8.34)"},
+    "controls": {
+      "5.1": "Policies for information security", "5.2": "Information security roles and responsibilities", "5.3": "Segregation of duties",
+      "5.4": "Management responsibilities", "5.5": "Contact with authorities", "5.6": "Contact with special interest groups",
+      "5.7": "Threat intelligence", "5.8": "Information security in project management", "5.9": "Inventory of information and other associated assets",
+      "5.12": "Classification of information", "5.13": "Labelling of information", "5.14": "Information transfer",
+      "5.15": "Access control", "5.16": "Identity management", "5.17": "Authentication information", "5.18": "Access rights",
+      "5.19": "Information security in supplier relationships", "5.20": "Addressing information security within supplier agreements",
+      "5.21": "Managing information security in the ICT supply chain", "5.22": "Monitoring, review and change management of supplier services",
+      "5.24": "Information security incident management planning and preparation", "5.25": "Assessment and decision on information security events",
+      "5.26": "Response to information security incidents", "5.27": "Learning from information security incidents",
+      "5.29": "Information security during disruption", "5.30": "ICT readiness for business continuity",
+      "5.35": "Independent review of information security", "5.36": "Compliance with policies, rules and standards for information security", "5.37": "Documented operating procedures",
+      "6.1": "Screening", "6.3": "Information security awareness, education and training", "6.4": "Disciplinary process", "6.5": "Responsibilities after termination or change of employment",
+      "7.1": "Physical security perimeters", "7.2": "Physical entry", "7.3": "Securing offices, rooms and facilities", "7.5": "Protecting against physical and environmental threats",
+      "7.8": "Equipment siting and protection", "7.10": "Storage media", "7.11": "Supporting utilities", "7.14": "Secure disposal or re-use of equipment",
+      "8.2": "Privileged access rights", "8.3": "Information access restriction", "8.5": "Secure authentication", "8.6": "Capacity management",
+      "8.7": "Protection against malware", "8.8": "Management of technical vulnerabilities", "8.9": "Configuration management", "8.10": "Information deletion",
+      "8.11": "Data masking", "8.12": "Data leakage prevention", "8.13": "Information backup", "8.14": "Redundancy of information processing facilities",
+      "8.15": "Logging", "8.16": "Monitoring activities", "8.19": "Installation of software on operational systems", "8.20": "Networks security",
+      "8.21": "Security of network services", "8.22": "Segregation of networks", "8.24": "Use of cryptography", "8.25": "Secure development life cycle",
+      "8.29": "Security testing in development and acceptance", "8.31": "Separation of development, test and production environments", "8.32": "Change management"
+    }
+  },
+  "pci_dss_v4": {
+    "name": "PCI DSS v4.0.1",
+    "requirements": {
+      "1": "Install and maintain network security controls", "2": "Apply secure configurations to all system components",
+      "3": "Protect stored account data", "4": "Protect cardholder data with strong cryptography during transmission",
+      "5": "Protect all systems and networks from malicious software", "6": "Develop and maintain secure systems and software",
+      "7": "Restrict access to system components and cardholder data by business need to know", "8": "Identify users and authenticate access",
+      "9": "Restrict physical access to cardholder data", "10": "Log and monitor all access to system components and cardholder data",
+      "11": "Test security of systems and networks regularly", "12": "Support information security with organizational policies and programs"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+soc2_criterion,nist_csf_2_category,iso_27001_2022_annex_a,pci_dss_v4_requirement,notes
+CC1.1,GV.OC;GV.RR,5.1;5.4;6.4,12.1,Tone at the top and code of conduct; ISO 6.4 is the disciplinary process
+CC1.2,GV.OV;GV.RR,5.1;5.35,12.4,Board / leadership oversight of the security program
+CC1.3,GV.RR,5.2;5.3,12.4,Roles responsibilities and segregation of duties
+CC1.4,GV.RR;PR.AT,6.1;6.3,12.6,Screening and competence of people in control roles
+CC1.5,GV.RR,5.4;6.4,12.4,Accountability enforced through management responsibilities
+CC2.1,GV.OC;ID.AM,5.9;5.12,12.5,Quality information depends on knowing the assets and classifying information
+CC2.2,GV.PO;PR.AT,5.1;6.3,12.6,Internal communication of policies and responsibilities
+CC2.3,GV.SC;RS.CO,5.5;5.6;5.20,12.8,External communication including authorities and suppliers
+CC3.1,GV.RM,5.1,12.3,Objectives set so that risk can be assessed against them
+CC3.2,ID.RA;GV.RM,5.7;8.8,12.3,Risk identification and analysis; ISO 5.7 threat intelligence
+CC3.3,ID.RA,5.7,12.3,Fraud considered explicitly in the risk assessment
+CC3.4,ID.RA;ID.IM,5.7;8.32,12.3,Assessing change as a source of risk
+CC4.1,ID.IM;DE.CM,5.35;5.36,12.4,Ongoing and separate evaluations (internal audit and continuous monitoring)
+CC4.2,ID.IM;RS.CO,5.35;5.36,12.4,Deficiencies communicated and tracked to remediation
+CC5.1,GV.PO;PR.PS,5.1;5.8,12.1,Control activities selected against the risk register
+CC5.2,PR.PS,8.9,2.2,General IT controls; ISO 8.9 configuration management
+CC5.3,GV.PO,5.1;5.37,12.1,Controls deployed through policies and documented procedures
+CC6.1,PR.AA;PR.PS,5.15;8.2;8.3;8.5,7.1;8.2,Logical access architecture and authentication
+CC6.2,PR.AA,5.16;5.18,8.2;8.3,Provisioning and authorization of new users
+CC6.3,PR.AA,5.18;8.2,7.2;8.2,Modification and removal of access; least privilege; access reviews
+CC6.4,PR.AA,7.1;7.2;7.3,9.2;9.3,Physical access to facilities
+CC6.5,PR.DS,7.10;7.14;8.10,9.4,Media sanitization and secure disposal
+CC6.6,PR.PS;PR.IR,8.20;8.21;8.22,1.2;1.3,Boundary protection: firewalls network segregation
+CC6.7,PR.DS,5.14;8.10;8.12;8.24,3.4;4.2,Data in transit and removable media; DLP and encryption
+CC6.8,PR.PS;DE.CM,8.7;8.19,5.2;5.3,Malware prevention and software installation controls
+CC7.1,DE.CM;ID.RA,8.8;8.9,6.3;11.3,Vulnerability and configuration monitoring
+CC7.2,DE.CM;DE.AE,8.15;8.16,10.2;10.4,Logging and anomaly monitoring
+CC7.3,DE.AE;RS.AN,5.25;8.15,10.7;12.10,Security event evaluation and triage
+CC7.4,RS.MA;RS.AN;RS.MI;RS.CO,5.24;5.26;5.27,12.10,Incident response program
+CC7.5,RC.RP;RC.CO,5.24;5.29,12.10,Recovery from incidents and lessons learned
+CC8.1,PR.PS;ID.IM,8.25;8.29;8.31;8.32,6.4;6.5,Change management and secure development lifecycle
+CC9.1,GV.RM;PR.IR;RC.RP,5.29;5.30,12.10,Business continuity and disruption risk
+CC9.2,GV.SC;ID.RA,5.19;5.20;5.21;5.22,12.8,Third-party / vendor risk management
+A1.1,PR.IR;DE.CM,8.6,,Capacity management and monitoring
+A1.2,PR.IR;PR.DS,7.5;7.8;7.11;8.13;8.14,,Environmental protection backups and redundancy
+A1.3,RC.RP;ID.IM,5.30;8.14,,Recovery testing
+C1.1,PR.DS;ID.AM,5.12;5.13;8.11,3.1,Identification classification and masking of confidential information
+C1.2,PR.DS,7.10;8.10,3.2;9.4,Disposal of confidential information at end of retention

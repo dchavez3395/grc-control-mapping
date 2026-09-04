@@ -1,0 +1,39 @@
+criterion_id,category,title
+CC1.1,Control Environment,The entity demonstrates a commitment to integrity and ethical values
+CC1.2,Control Environment,The board exercises oversight of the development and performance of internal control
+CC1.3,Control Environment,Management establishes structures reporting lines and authorities and responsibilities
+CC1.4,Control Environment,The entity demonstrates a commitment to attract develop and retain competent individuals
+CC1.5,Control Environment,The entity holds individuals accountable for their internal control responsibilities
+CC2.1,Communication and Information,The entity obtains or generates and uses relevant quality information to support internal control
+CC2.2,Communication and Information,The entity internally communicates information including objectives and responsibilities for internal control
+CC2.3,Communication and Information,The entity communicates with external parties regarding matters affecting internal control
+CC3.1,Risk Assessment,The entity specifies objectives with sufficient clarity to enable identification and assessment of risks
+CC3.2,Risk Assessment,The entity identifies risks to the achievement of its objectives and analyzes risks to determine how they should be managed
+CC3.3,Risk Assessment,The entity considers the potential for fraud in assessing risks
+CC3.4,Risk Assessment,The entity identifies and assesses changes that could significantly impact the system of internal control
+CC4.1,Monitoring Activities,The entity selects develops and performs ongoing and/or separate evaluations of internal control components
+CC4.2,Monitoring Activities,The entity evaluates and communicates internal control deficiencies in a timely manner
+CC5.1,Control Activities,The entity selects and develops control activities that contribute to the mitigation of risks
+CC5.2,Control Activities,The entity selects and develops general control activities over technology
+CC5.3,Control Activities,The entity deploys control activities through policies and procedures
+CC6.1,Logical and Physical Access Controls,The entity implements logical access security software infrastructure and architectures over protected information assets
+CC6.2,Logical and Physical Access Controls,The entity registers and authorizes new internal and external users before issuing system credentials
+CC6.3,Logical and Physical Access Controls,The entity authorizes modifies or removes access based on roles responsibilities and least privilege
+CC6.4,Logical and Physical Access Controls,The entity restricts physical access to facilities and protected information assets
+CC6.5,Logical and Physical Access Controls,The entity discontinues logical and physical protections over physical assets only after the ability to read or recover data has been diminished
+CC6.6,Logical and Physical Access Controls,The entity implements logical access security measures to protect against threats from sources outside its system boundaries
+CC6.7,Logical and Physical Access Controls,The entity restricts the transmission movement and removal of information to authorized users and processes
+CC6.8,Logical and Physical Access Controls,The entity implements controls to prevent or detect and act upon the introduction of unauthorized or malicious software
+CC7.1,System Operations,The entity uses detection and monitoring procedures to identify changes to configurations that result in new vulnerabilities
+CC7.2,System Operations,The entity monitors system components and their operation for anomalies indicative of malicious acts natural disasters and errors
+CC7.3,System Operations,The entity evaluates security events to determine whether they could or have resulted in a failure to meet objectives
+CC7.4,System Operations,The entity responds to identified security incidents by executing a defined incident response program
+CC7.5,System Operations,The entity identifies develops and implements activities to recover from identified security incidents
+CC8.1,Change Management,The entity authorizes designs develops acquires configures documents tests approves and implements changes to infrastructure data software and procedures
+CC9.1,Risk Mitigation,The entity identifies selects and develops risk mitigation activities for risks arising from potential business disruptions
+CC9.2,Risk Mitigation,The entity assesses and manages risks associated with vendors and business partners
+A1.1,Availability,The entity maintains monitors and evaluates current processing capacity and use of system components
+A1.2,Availability,The entity authorizes designs develops implements operates approves maintains and monitors environmental protections software data backup processes and recovery infrastructure
+A1.3,Availability,The entity tests recovery plan procedures supporting system recovery
+C1.1,Confidentiality,The entity identifies and maintains confidential information to meet the entity's objectives related to confidentiality
+C1.2,Confidentiality,The entity disposes of confidential information to meet the entity's objectives related to confidentiality
